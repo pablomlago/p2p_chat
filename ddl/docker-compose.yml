@@ -1,0 +1,13 @@
+version: '3'
+services:
+  postgres:
+    image: 'postgres:latest'
+    ports: 
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DATABASE=p2p
+    volumes:
+      - ./psql_data:/var/lib/postgresql/data
+      - ./DDL.sql:/docker-entrypoint-initdb.d/DDL.sql
